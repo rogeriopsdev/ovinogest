@@ -24,7 +24,7 @@ from ovinogestApp.views import new_ovino, adm_ovino, publico_ovino, home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home, name='home'),
+    path('', home, name='home'),
     path('new_ovino/', new_ovino, name='new_ovino'),
     path('adm_ovino/', adm_ovino, name='adm_ovino'),
     path('publico_ovino/', publico_ovino, name='publico_ovino'),
