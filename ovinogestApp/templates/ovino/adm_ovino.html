@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table">
+    <thead>
+    <td>id</td>
+    <td>foto</td>
+    <td>matricula</td>
+    <td>nome</td>
+    <td>sexo</td>
+    <td>data de nascimento</td>
+    <td>data de cadastro</td>
+    <td>Peso</td>
+    <td>id categoria</td>
+    <td>id raça</td>
+    <td>editar</td>
+    <td>excluir</td>
+    </thead>
+    <tbody>
+    {{ovinos}}
+    {% for ovino in ovinos %}
+    <tr>
+        <td>{{ovino.id_ovino}}</td>
+        <td><img src="{{ovino.foto_url}}" alt=""></td>
+        <td>{{ovino.matricula}}</td>
+        <td>{{ovino.nome_ovino}}</td>
+        <td>{{ovino.sexo_ovino}}</td>
+        <td>{{ovino.data_nasc}}</td>
+        <td>{{ovino.data_cad}}</td>
+        <td>{{ovino.peso_ovino}}</td>
+        <td>{{ovino.id_categoria}}</td>
+        <td>{{ovino.id_raca}}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+    {% for ovino in ovinos %}
+    <div class="col-md-2">
+        <div class="card">
+            <div>{{ovino.id_ovino}}</div>
+            <div><img src="{{ovino.foto_url}}" alt=""></div>
+
+            <div class="card-header">{{ovino.matricula}}</div>
+
+            <div>{{ovino.nome_ovino}}</div>
+            <div class="row">
+                <div class="col-md-4">{{ovino.sexo_ovino}}</div>
+                <div class="col-md-4">{{ovino.data_nasc}}</div>
+                <div class="col-md-4">{{ovino.data_cad}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">{{ovino.peso_ovino}}</div>
+                <div class="col-md-4">{{ovino.id_categoria}}</div>
+                <div class="col-md-4">{{ovino.id_raca}}</div>
+            </div>
+
+            <div class="row" >
+                <a href="#" class="btn btn-warning col-md-3">manut</a>
+
+                <a href="#" class="btn btn-warning col-md-3">manut</a>
+
+                <a href="#" class="btn btn-warning col-md-3">manut</a>
+
+                <a href="#" class="btn btn-warning col-md-3">manut</a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+</body>
+</html>
