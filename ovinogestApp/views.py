@@ -2,6 +2,9 @@ from django.shortcuts import render
 from ovinogestApp.models import Ovino,Raca,Manejo,Medicamento,Manutencao,Doenca,Historico,Categoria
 from ovinogestApp.forms import  OvinoForm,DoencaForm,CategoriaForm,RacaForm,ManejoForm,ManutencaoForm,MedicamentoForm,HistoricoForm
 
+
+def home(reuest):
+    return render(reuest, 'ovino/home.html')
 def new_ovino (request):
     form = OvinoForm (request.POST, request.FILES)
     if request.method == "POST":
