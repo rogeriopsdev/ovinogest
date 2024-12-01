@@ -68,7 +68,7 @@ class Ovino (models.Model):
     def save(self):
         super().save()
         im = Image.open(self.foto_ovino.path)
-        novo_tamanho = (40, 40)
+        novo_tamanho = (100, 100)
         im.thumbnail(novo_tamanho)
         im.save(self.foto_ovino.path)
 
