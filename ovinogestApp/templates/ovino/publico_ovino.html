@@ -1,41 +1,48 @@
 {% extends 'ovino/base.html' %}
 {% block conteudo %}
-    <h1>Título</h1>
+   <h1 class="text-center">Título</h1>
 
 <div class="row">
     {% for ovino in ovinos %}
-    <div class="col-md-2">
-        <div class="card">
-            <div>{{ovino.id_ovino}}</div>
-            <div><img src="{{ovino.foto_url}}" alt=""></div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"> <!-- Ajuste das colunas para responsividade -->
+        <div class="card h-100"> <!-- h-100 garante altura uniforme -->
+            <!-- ID do ovino -->
+            <div class="p-2 text-center fw-bold">#{{ ovino.id_ovino }}</div>
 
-            <div class="card-header">{{ovino.matricula}}</div>
+            <!-- Imagem -->
+            <img src="{{ ovino.foto_url }}" alt="Foto de {{ ovino.nome_ovino }}" class="card-img-top img-fluid">
+            
+            <!-- Informações do ovino -->
+            <div class="card-body">
+                <h5 class="card-title text-center">{{ ovino.matricula }}</h5>
+                <p class="card-text text-center">{{ ovino.nome_ovino }}</p>
 
-            <div>{{ovino.nome_ovino}}</div>
-            <div class="row">
-                <div class="col-md-4">{{ovino.sexo_ovino}}</div>
-                <div class="col-md-4">{{ovino.data_nasc}}</div>
-                <div class="col-md-4">{{ovino.data_cad}}</div>
+                <div class="row text-center">
+                    <div class="col-4"><strong>Sexo:</strong> {{ ovino.sexo_ovino }}</div>
+                    <div class="col-4"><strong>Nasc:</strong> {{ ovino.data_nasc }}</div>
+                    <div class="col-4"><strong>Cad:</strong> {{ ovino.data_cad }}</div>
+                </div>
+                
+                <div class="row mt-2 text-center">
+                    <div class="col-4"><strong>Peso:</strong> {{ ovino.peso_ovino }}</div>
+                    <div class="col-4"><strong>Cat:</strong> {{ ovino.id_categoria }}</div>
+                    <div class="col-4"><strong>Raça:</strong> {{ ovino.id_raca }}</div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">{{ovino.peso_ovino}}</div>
-                <div class="col-md-4">{{ovino.id_categoria}}</div>
-                <div class="col-md-4">{{ovino.id_raca}}</div>
-            </div>
 
-            <div class="row" >
-                <a href="#" class="btn btn-warning col-md-3">manut</a>
-
-                <a href="#" class="btn btn-warning col-md-3">manut</a>
-
-                <a href="#" class="btn btn-warning col-md-3">manut</a>
-
-                <a href="#" class="btn btn-warning col-md-3">manut</a>
-
+            <!-- Botões de manutenção -->
+            <div class="card-footer bg-white">
+                <div class="d-flex flex-wrap justify-content-between">
+                    <a href="#" class="btn btn-warning btn-sm mx-1">Manut 1</a>
+                    <a href="#" class="btn btn-warning btn-sm mx-1">Manut 2</a>
+                    <a href="#" class="btn btn-warning btn-sm mx-1">Manut 3</a>
+                    <a href="#" class="btn btn-warning btn-sm mx-1">Manut 4</a>
+                </div>
             </div>
         </div>
     </div>
     {% endfor %}
-
 </div>
+
+
 {% endblock conteudo %}
