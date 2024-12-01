@@ -24,3 +24,11 @@
         margin-left: 0; /* Sem margem em telas pequenas */
     }
 }
+/* Adiciona animação ao abrir/fechar o sidebar */
+.sidebar {
+    transition: all 0.3s ease;
+}
+.hidden {
+    transform: translateX(-100%);
+}
+
