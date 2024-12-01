@@ -26,19 +26,8 @@ SECRET_KEY = 'django-insecure-02n-0c=j#s5cf&8j+7@y2k3gahu^l@zv!ex-4)$b@#zm$_$+w3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['ovino-zmjemdhu.b4a.run']
-CSRF_TRUSTED_ORIGINS = ['https://ovino-zmjemdhu.b4a.run']
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-#CSRF_COOKIE_HTTPONLY = False
 
-# Cookies de sessão
-SESSION_COOKIE_SECURE = True  # Cookies somente em HTTPS
-SESSION_COOKIE_SAMESITE = 'Lax'  # Restringe envio de cookies entre sites
-
-# Cookies de CSRF
-CSRF_COOKIE_SECURE = True  # Cookies de CSRF somente em HTTPS
-CSRF_COOKIE_SAMESITE = 'Lax'
+ALLOWED_HOSTS = []
 
 
 # Application definition

@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<table class="table">
+{% extends 'ovino/base.html' %}
+{% block conteudo %}
+    <h1>Título</h1>
+    <table class="table">
     <thead>
     <td>id</td>
     <td>foto</td>
@@ -22,7 +17,7 @@
     <td>excluir</td>
     </thead>
     <tbody>
-    {{ovinos}}
+
     {% for ovino in ovinos %}
     <tr>
         <td>{{ovino.id_ovino}}</td>
@@ -40,5 +35,5 @@
     {% endfor %}
     </tbody>
 </table>
-</body>
-</html>
+{% endblock conteudo %}
+
