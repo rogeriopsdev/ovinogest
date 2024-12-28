@@ -2,26 +2,55 @@
 {% load crispy_forms_tags %}
 {% load widget_tweaks %}
 {% block conteudo %}
-   <h1 class="text-center my-4">Título</h1>
+    <h1><img src="/static/img/icon_variation_4.png" alt="" style="height: 80px; width: 90px;">Cadastro de Ovinos</h1>
 
-<form method="post" enctype="multipart/form-data">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-                {% csrf_token %}
-                <!-- Formulário com Crispy Forms -->
-                {{ form|crispy }}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <label for="foto" class="mt-2 mb-2">Foto:
+                {% render_field form.foto_ovino type="file" name='foto' %}
+            </label>
+            <div class="col-lg-6 col-sm-12 mt-2 mb-2">
+                <div class="row">
+                <label for="mat" class="col-lg-6 col-sm-12 mt-2 mb-2">Matrícula:
+                    {% render_field form.matricula type="text" class="form-control" name='mat' %}
+                </label>
+                <label for="nome" class="col-lg-6 col-sm-12 mt-2 mb-2">Nome:
+                    {% render_field form.nome_ovino type="text" class="form-control" name='nome' %}
+                </label>
+                <label for="sexo" class="col-lg-6 col-sm-12 mt-2 mb-2">Sexo:
+                    {% render_field form.sexo_ovino type="text" class="form-control" name='sexo' %}
+                </label>
+                <label for="nasc" class="col-lg-6 col-sm-12 mt-2 mb-2"> Data de Nascimento:
+                {% render_field form.data_nasc type="date" name='nasc' class="form-control"  %}
+                    </label>
+                    </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="row">
 
-                <!-- Botão de Enviar -->
-                <div class="mt-3">
-                    <input class="btn text-light p-3 w-100" type="submit" value="Salvar" 
-                           style="background: rgb(174, 142, 28); font-size: 1.2rem;">
+                    <label for="cad" class="col-lg-6 col-sm-12 mt-2 mb-2"> Data de Cadastro:
+                        {% render_field form.data_cad type="date" class="form-control" name="cad" %}
+                    </label>
+                    <label for='peso' class="col-lg-6 col-sm-12 mt-2 mb-2"> Peso:
+                        {% render_field form.peso_ovino type="number" class="form-control" name='peso'%}
+                    </label>
+                </div>
+                <div class="row">
+                    <label class="col-lg-6 col-sm-12 mt-2 mb-2">Categoria:
+                        {% render_field form.id_categoria class="form-control" %}
+                    </label>
+                    <label class="col-lg-6 col-sm-12 mt-2 mb-2">Raça:
+                        {% render_field form.id_raca class="form-control" %}
+                    </label>
                 </div>
             </div>
-        </div>
-    </div>
-</form>
 
+            <input class="btn text-dark p-3 form-control mt-5 " type="submit" value="Salvar"
+                   style="background: rgb(200, 255, 100)">
+        </div>
+
+    </form>
 
 {% endblock conteudo %}
 

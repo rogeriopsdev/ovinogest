@@ -1,5 +1,35 @@
 {% extends 'ovino/base.html' %}
 {% block conteudo %}
-    <h1>Aqui é nossa página inicial</h1>
+<div class="container text-center mt-5">
+    <h1 class="mb-4">Bem-vindo ao Sistema de Gestão de Ovinos</h1>
+    <p class="mb-4">Escolha uma das opções abaixo para navegar pelo sistema:</p>
     
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'publico_ovino' %}" class="btn btn-lg btn-primary w-100 py-3 shadow">
+                🐑 Ovinos
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="{% url 'new_medicamento' %}" class="btn btn-lg btn-success w-100 py-3 shadow">
+                💊 Medicamentos
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="#" class="btn btn-lg btn-warning w-100 py-3 shadow">
+                🛠️ Manutenção de Ovinos
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="#" class="btn btn-lg btn-info w-100 py-3 shadow">
+                🌾 Manejo de Ovinos
+            </a>
+        </div>
+        <div class="col-md-4 mb-3">
+            <a href="#" class="btn btn-lg btn-danger w-100 py-3 shadow">
+                📊 Estatísticas
+            </a>
+        </div>
+    </div>
+</div>
 {% endblock conteudo %}

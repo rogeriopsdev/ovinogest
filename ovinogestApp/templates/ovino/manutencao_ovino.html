@@ -1,0 +1,103 @@
+{% extends 'ovino/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block conteudo %}
+    <div class="container">
+        <h1 class="text-center mt-4">
+            <img src="/static/img/icon_variation_5.png" alt="" class="img-fluid" style="height: 80px; width: 90px;">
+            Manutenção e Manejo
+        </h1>
+
+        {% if messages %}
+            <div class="alert alert-success">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        <li><strong>{{ field }}:</strong> {{ errors|join:", " }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data" class="needs-validation">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="id">ID:</label>
+                    {% render_field form.id_ovino class="form-control" %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="nome">Nome:</label>
+                    {% render_field form.nome_manutencao class="form-control" %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="data">Data:</label>
+                    {% render_field form.data_manutencao type="date" class="form-control" %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="doenca">Doença:</label>
+                    {% render_field form.id_doenca class="form-control" %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="med">Medicamento:</label>
+                    {% render_field form.id_medicamento class="form-control" %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="man">Manejo:</label>
+                    {% render_field form.id_manejo class="form-control" %}
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="desc">Descrição/Observação:</label>
+                    {% render_field form.desc_manutencao class="form-control" rows="4" %}
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg px-5 mb-3" type="submit" style="background: rgb(55, 150, 255); border: none;">
+                    Salvar
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Ovino</th>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Doença</th>
+                <th>Medicamento</th>
+                <th>Manejo</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for man in mans %}
+                <tr>
+                    <td>{{ man.id_manutencao }}</td>
+                    <td>{{ man.id_ovino }}</td>
+                    <td>{{ man.nome_manutencao }}</td>
+                    <td>{{ man.data_manutencao }}</td>
+                    <td>{{ man.id_doenca }}</td>
+                    <td>{{ man.id_medicamento }}</td>
+                    <td>{{ man.id_manejo }}</td>
+                    <td>{{ man.desc_manutencao }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock conteudo %}

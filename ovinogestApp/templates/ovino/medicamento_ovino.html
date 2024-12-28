@@ -1,0 +1,129 @@
+{% extends 'ovino/base.html' %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block conteudo %}
+<div class="container">
+    <h1 class="text-center mt-4">
+        <img src="/static/img/icon_variation_1.png" alt="" class="img-fluid" style="height: 80px; width: 90px;">
+        Medicamentos
+    </h1>
+
+    {% if messages %}
+        <div class="alert alert-success">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    <li><strong>{{ field }}:</strong> {{ errors|join:", " }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data" class="needs-validation">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="nome">Nome:</label>
+                {% render_field form.nome class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="principio_ativo">Princípio Ativo:</label>
+                {% render_field form.principio_ativo class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="forma_farmaceutica">Forma Farmacêutica:</label>
+                {% render_field form.forma_farmaceutica class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="dosagem">Dosagem:</label>
+                {% render_field form.dosagem class="form-control" %}
+            </div>
+            <div class="col-12 mb-3">
+                <label for="descricao">Descrição:</label>
+                {% render_field form.descricao class="form-control" rows="3" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="indicacao">Indicação:</label>
+                {% render_field form.indicacao class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="contraindicacoes">Contraindicações:</label>
+                {% render_field form.contraindicacoes class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="modo_de_uso">Modo de Uso:</label>
+                {% render_field form.modo_de_uso class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="fabricante">Fabricante:</label>
+                {% render_field form.fabricante class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lote">Lote:</label>
+                {% render_field form.lote class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="validade">Data de Validade:</label>
+                {% render_field form.validade type="date" class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="estoque_atual">Estoque Atual:</label>
+                {% render_field form.estoque_atual class="form-control" %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="unidade_medida">Unidade de Medida:</label>
+                {% render_field form.unidade_medida class="form-control" %}
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary btn-lg px-5 mb-3" type="submit" style="background: rgb(55, 150, 255); border: none;">
+                Salvar
+            </button>
+        </div>
+    </form>
+</div>
+<div class="table-responsive mt-4">
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Princípio Ativo</th>
+                <th>Forma</th>
+                <th>Dosagem</th>
+                <th>Validade</th>
+                <th>Estoque</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for med in medicamentos %}
+                <tr>
+                    <td>{{ med.id }}</td>
+                    <td>{{ med.nome }}</td>
+                    <td>{{ med.principio_ativo }}</td>
+                    <td>{{ med.forma_farmaceutica }}</td>
+                    <td>{{ med.dosagem }}</td>
+                    <td>{{ med.validade|date:"d/m/Y" }}</td>
+                    <td>{{ med.estoque_atual }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-primary">
+                            Editar
+                        </a>
+                        <a href="#" class="btn btn-sm btn-danger">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock conteudo %}
