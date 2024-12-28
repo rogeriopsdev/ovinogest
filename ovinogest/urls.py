@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import path, re_path
 from django.views.static import serve
 
-from ovinogestApp.views import new_ovino, adm_ovino, publico_ovino, home
+from ovinogestApp.views import new_ovino, adm_ovino, publico_ovino, home, editar_ovino, manutencao, new_medicamento
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,9 @@ urlpatterns = [
     path('new_ovino/', new_ovino, name='new_ovino'),
     path('adm_ovino/', adm_ovino, name='adm_ovino'),
     path('publico_ovino/', publico_ovino, name='publico_ovino'),
+    path('editar_ovino/<str:id>', editar_ovino, name='editar_ovino'),
+    path('manutencao/<str:id>', manutencao, name='manutencao'),
+    path('new_medicamento/', new_medicamento, name='new_medicamento'),
 
     re_path(r'^img/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
