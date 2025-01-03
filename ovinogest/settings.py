@@ -142,7 +142,7 @@ MEDIA_URL = '/img/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, 'static'),
 ]
-MEDIA_ROOT =   os.path.join(BASE_DIR, 'cpasisApp/static/img')
+MEDIA_ROOT =   os.path.join(BASE_DIR, 'ovinogestApp/static/img')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
